@@ -10,9 +10,9 @@ export const headphones: IHeadphones[] = [
     {
         id: 1,
         img: '1.png',
-        title: 'Apple BYZ S852I',
+        title: 'Apple Samsung',
         rating: 4.7,
-        price: 3527,
+        price: 387,
     },
     {
         id: 2,

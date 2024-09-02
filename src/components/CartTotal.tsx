@@ -8,7 +8,12 @@ import { Link } from 'react-router-dom'
 
 const CartTotal = () => {
     const cart = useSelector((state: RootState) => state.cart.cart)
-    const totalQuantity = cart.reduce((total, item) => total + item.price, 0)
+
+    const totalQuantity = cart.reduce(
+        (total, item) => total + item.price * item.count,
+        0
+    )
+
     const { t } = useTranslation()
 
     return (

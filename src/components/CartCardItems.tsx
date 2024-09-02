@@ -1,6 +1,11 @@
 import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
-import { ICart } from '../redux/slices/cartSlice'
-import { useSelector } from 'react-redux'
+import {
+    addToCart,
+    ICart,
+    removeFullCard,
+    removeToCard,
+} from '../redux/slices/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store/store'
 
 interface ICartItem {
@@ -10,6 +15,36 @@ interface ICartItem {
 const CartCarditems = (props: ICartItem) => {
     const cart = useSelector((state: RootState) => state.cart.cart)
     const itemInCart = cart.find(cartItem => cartItem.id === props.item.id)
+    const totalQuantity = props.item.price * props.item.count
+    const dispatch = useDispatch()
+
+    const handleAddClick = () => {
+        dispatch(
+            addToCart({
+                item: props.item,
+                count: 1,
+            })
+        )
+    }
+
+    const handleDecrease = () => {
+        if (itemInCart) {
+            dispatch(
+                removeToCard({
+                    id: props.item.id,
+                    count: 1,
+                })
+            )
+        }
+    }
+
+    const deleteItem = () => {
+        dispatch(
+            removeFullCard({
+                id: props.item.id,
+            })
+        )
+    }
 
     return (
         <>
@@ -36,23 +71,41 @@ const CartCarditems = (props: ICartItem) => {
                         </div>
                     </div>
                     <div className="mt-4">
-                        <img src="/src/assets/Vector.jpg" alt="backet" />
+                        <img
+                            className="cursor-pointer"
+                            src="/src/assets/Vector.jpg"
+                            alt="backet"
+                            onClick={deleteItem}
+                        />
                     </div>
                 </div>
 
                 <div className="flex justify-between items-center mt-6 ml-6">
                     <div className="flex gap-5 items-center">
+                        <div>
+                            <img
+                                className={`${
+                                    props.item.count === 1
+                                        ? 'pointer-events-none opacity-60 '
+                                        : 'cursor-pointer'
+                                }`}
+                                src="/src/assets/-.jpg"
+                                alt="-"
+                                onClick={handleDecrease}
+                            />
+                        </div>
+                        <div className="font-bold">{props.item.count}</div>
                         <button>
-                            <img src="/src/assets/-.jpg" alt="-" />
-                        </button>
-                        <div className="font-bold">2</div>
-                        <button>
-                            <img src="/src/assets/+.jpg" alt="+" />
+                            <img
+                                src="/src/assets/+.jpg"
+                                alt="+"
+                                onClick={handleAddClick}
+                            />
                         </button>
                     </div>
 
                     <div className="font-semibold">
-                        5320
+                        {totalQuantity}
                         <CurrencyRubleIcon
                             sx={{
                                 fontSize: 16,

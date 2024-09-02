@@ -22,8 +22,26 @@ export const cartSlice = createSlice({
                 state.cart.push({ ...item, count })
             }
         },
+        removeToCard(state, action) {
+            const { id, count } = action.payload
+            const indexProduct = state.cart.findIndex(i => i.id === id)
+            if (indexProduct >= 0) {
+                if (state.cart[indexProduct].count > count) {
+                    state.cart[indexProduct].count -= count
+                } else {
+                    state.cart.splice(indexProduct, 1)
+                }
+            }
+        },
+        removeFullCard(state, action) {
+            const { id } = action.payload
+            const indexProduct = state.cart.findIndex(i => i.id === id)
+            if (indexProduct >= 0) {
+                state.cart.splice(indexProduct, 1)
+            }
+        },
     },
 })
 
-export const { addToCart } = cartSlice.actions
+export const { addToCart, removeToCard, removeFullCard } = cartSlice.actions
 export default cartSlice.reducer

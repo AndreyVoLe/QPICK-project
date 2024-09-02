@@ -10,5 +10,6 @@
     "total": "TOTAL",
     "goToBuy": "Go to checkout",
     "backToSelection": "Back to selection",
-    "emptyCart": "Cart is empty..."
+    "emptyCart": "Cart is empty...",
+    "emptyLike": "There are no featured products in the list yet"
 }

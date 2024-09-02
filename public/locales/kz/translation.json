@@ -10,5 +10,6 @@
     "total": "Жалпы",
     "goToBuy": "Кассаға өтіңіз",
     "backToSelection": "Артқа",
-    "emptyCart": "Aрба бос..."
+    "emptyCart": "Aрба бос...",
+    "emptyLike": "Тізімде әлі таңдалған өнімдер жоқ"
 }

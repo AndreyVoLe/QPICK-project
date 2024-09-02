@@ -23,6 +23,12 @@
     height: 18px;
     text-align: center;
 }
+.likes {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 12px;
+}
 /* main {
     flex: 1;
 } */
