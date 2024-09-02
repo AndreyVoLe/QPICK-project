@@ -6,7 +6,7 @@ export interface ICart extends IHeadphones {
 }
 
 const initialState: { cart: ICart[] } = {
-    cart: [],
+    cart: JSON.parse(localStorage.getItem('cart') || '[]'),
 }
 
 export const cartSlice = createSlice({
@@ -21,6 +21,7 @@ export const cartSlice = createSlice({
             } else {
                 state.cart.push({ ...item, count })
             }
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         removeToCard(state, action) {
             const { id, count } = action.payload
@@ -32,6 +33,7 @@ export const cartSlice = createSlice({
                     state.cart.splice(indexProduct, 1)
                 }
             }
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         removeFullCard(state, action) {
             const { id } = action.payload
@@ -39,6 +41,7 @@ export const cartSlice = createSlice({
             if (indexProduct >= 0) {
                 state.cart.splice(indexProduct, 1)
             }
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
     },
 })

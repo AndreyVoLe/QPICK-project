@@ -9,22 +9,22 @@ import { Link } from 'react-router-dom'
 const CartContent = () => {
     const { t } = useTranslation()
     const cart = useSelector((state: RootState) => state.cart.cart)
-    console.log(cart)
+
     return (
         <>
             {cart.length > 0 ? (
-                <main className="px-4 sm:px-6 lg:px-8">
+                <main className="px-4 sm:px-6 lg:px-8 bg-gr">
                     <p className="font-semibold text-gray-600 mt-20 mb-4">
                         {t('cart')}
                     </p>
-                    <div className="flex justify-between  ">
-                        <div className="flex flex-col gap-5">
+                    <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-stretch ">
+                        <section className="flex flex-col gap-5">
                             {cart.map(item => (
-                                <CartCarditems item={item} />
+                                <CartCarditems key={item.id} item={item} />
                             ))}
-                        </div>
+                        </section>
 
-                        <section>
+                        <section className="mt-10 lg:mt-0">
                             <CartTotal />
                         </section>
                     </div>

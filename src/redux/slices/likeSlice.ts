@@ -2,8 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import { ICart } from './cartSlice'
 
 const initialState: { like: ICart[] } = {
-    like: [],
+    like: JSON.parse(localStorage.getItem('likes') || '[]'),
 }
+
 export const likeSlice = createSlice({
     name: 'like',
     initialState,
@@ -16,8 +17,10 @@ export const likeSlice = createSlice({
             } else {
                 state.like.splice(indexProduct, 1)
             }
+            localStorage.setItem('likes', JSON.stringify(state.like))
         },
     },
 })
+
 export const { addLike } = likeSlice.actions
 export default likeSlice.reducer

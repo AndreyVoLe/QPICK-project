@@ -1,14 +1,34 @@
 import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
 import { IHeadphones } from '../data.headphones'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useDispatch } from 'react-redux'
+import { addLike } from '../redux/slices/likeSlice'
 
 interface ILikeItem {
     item: IHeadphones
 }
 
 const LikeItem = (props: ILikeItem) => {
+    const dispatch = useDispatch()
+
+    const handleChangeLike = () => {
+        dispatch(
+            addLike({
+                item: props.item,
+                count: 1,
+            })
+        )
+    }
     return (
         <div className=" ">
-            <section className=" flex rounded-[30px] bg-white border border-gray-300 shadow-lg px-5 pb-4 h-[180px] md:w-[633px] min-w-[300px] ">
+            <section className=" flex rounded-[30px] bg-white border border-gray-300 shadow-lg px-5 pb-4 h-[180px] md:w-[633px] min-w-[300px] relative ">
+                <button
+                    title="Удалить из избранного"
+                    className="absolute top-2 right-5 cursor-pointer"
+                    onClick={handleChangeLike}
+                >
+                    <FavoriteIcon sx={{ color: 'orange' }} />
+                </button>
                 <div className="flex justify-between items-center">
                     <div className="flex gap-6">
                         <img

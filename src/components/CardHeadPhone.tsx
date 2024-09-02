@@ -8,7 +8,6 @@ import { addToCart, removeToCard } from '../redux/slices/cartSlice'
 import { t } from 'i18next'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { useState } from 'react'
 import { addLike } from '../redux/slices/likeSlice'
 
 interface ICard {
@@ -17,15 +16,14 @@ interface ICard {
 
 const CardHeadPhone = (props: ICard): JSX.Element => {
     const cart = useSelector((state: RootState) => state.cart.cart)
+    const like = useSelector((state: RootState) => state.like.like)
+    const isFilled = like.some(i => i.id === props.item.id)
 
     const itemInCart = cart.find(cartItem => cartItem.id === props.item.id)
-
-    const [isFilled, setIsFilled] = useState(false)
 
     const dispatch = useDispatch()
 
     const handleChangeLike = () => {
-        setIsFilled(prev => !prev)
         dispatch(
             addLike({
                 item: props.item,
@@ -54,7 +52,12 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
     return (
         <Grid size={{ xs: 12, md: 6, lg: 4 }}>
             <div className="flex flex-col border border-gray-300  rounded-3xl bg-white relative ">
-                <div
+                <button
+                    title={
+                        isFilled
+                            ? 'Удалить из избранного'
+                            : 'Добавить в избранное'
+                    }
                     className="absolute right-5 top-2 cursor-pointer"
                     onClick={handleChangeLike}
                 >
@@ -63,7 +66,7 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
                     ) : (
                         <FavoriteBorderOutlinedIcon sx={{ color: '#838383' }} />
                     )}
-                </div>
+                </button>
                 <div className="flex justify-center items-center">
                     <div className="card-image w-[180px] h-[180px] flex justify-center items-center">
                         <img

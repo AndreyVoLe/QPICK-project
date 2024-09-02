@@ -5,6 +5,8 @@ import { RootState } from '../redux/store/store'
 import { useTranslation } from 'react-i18next'
 import BackToSelection from './BackToSelection'
 import { Link } from 'react-router-dom'
+import PaymentModal from './PaymentModal'
+import { useState } from 'react'
 
 const CartTotal = () => {
     const cart = useSelector((state: RootState) => state.cart.cart)
@@ -13,7 +15,8 @@ const CartTotal = () => {
         (total, item) => total + item.price * item.count,
         0
     )
-
+    const [openModal, setOpenModal] = useState(false)
+    const handleOpenModal = () => setOpenModal(true)
     const { t } = useTranslation()
 
     return (
@@ -26,13 +29,17 @@ const CartTotal = () => {
                         {totalQuantity}
                     </span>
                 </div>
-                <button className="bg-midnight text-white font-medium w-full h-1/2 rounded-2xl">
+                <button
+                    className="bg-midnight text-white font-medium w-full h-1/2 rounded-2xl"
+                    onClick={handleOpenModal}
+                >
                     {t('goToBuy')}
                 </button>
             </div>
             <Link to={'/'}>
                 <BackToSelection />
             </Link>
+            <PaymentModal onOpen={openModal} />
         </section>
     )
 }

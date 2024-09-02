@@ -117,19 +117,28 @@ function Footer() {
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             VK:{' '}
-                            <a href="https://vk.com/neoflex_ru">
+                            <a
+                                href="https://vk.com/neoflex_ru"
+                                className="hover:text-gray-400 rounded-lg transition duration-300 ease-out"
+                            >
                                 vk/neoflex_ru
                             </a>
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             WhatsApp:{' '}
-                            <a href="https://api.whatsapp.com/send/?phone=74959842513&text&type=phone_number&app_absent=0">
+                            <a
+                                href="https://api.whatsapp.com/send/?phone=74959842513&text&type=phone_number&app_absent=0"
+                                className="hover:text-gray-400 rounded-lg transition duration-300 ease-out"
+                            >
                                 +7 (495) 984-25-13
                             </a>
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             Telegram:{' '}
-                            <a href="https://t.me/neoflexcareers">
+                            <a
+                                href="https://t.me/neoflexcareers"
+                                className="hover:text-gray-400 rounded-lg transition duration-300 ease-out"
+                            >
                                 Neoflexcareers
                             </a>
                         </Typography>

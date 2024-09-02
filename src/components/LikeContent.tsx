@@ -13,14 +13,14 @@ const LikeContent = () => {
     return (
         <>
             {like.length > 0 ? (
-                <main className="px-4 sm:px-6 lg:px-8">
+                <main className="px-4 sm:px-6 lg:px-8 bg-gr">
                     <p className="font-semibold text-gray-600 mt-[150px] mb-4 text-center">
                         {t('favorite')}
                     </p>
                     <div className="flex justify-center items-center">
                         <div className="flex flex-col gap-5 items-center">
                             {like.map(i => (
-                                <LikeItem item={i} />
+                                <LikeItem item={i} key={i.id} />
                             ))}
                         </div>
                     </div>
