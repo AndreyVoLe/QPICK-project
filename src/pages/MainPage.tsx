@@ -5,18 +5,20 @@ import Footer from '../components/Footer'
 
 const MainPage = () => {
     return (
-        <Container
-            maxWidth="lg"
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                minHeight: '100vh',
-            }}
-        >
-            <Header />
-            <MainContent />
-            <Footer />
-        </Container>
+        <div className="bg-gr">
+            <Container
+                maxWidth="lg"
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    minHeight: '100vh',
+                }}
+            >
+                <Header />
+                <MainContent />
+                <Footer />
+            </Container>
+        </div>
     )
 }
 

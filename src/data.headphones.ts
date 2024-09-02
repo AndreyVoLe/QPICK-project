@@ -4,7 +4,6 @@ export interface IHeadphones {
     title: string
     rating: number
     price: number
-    discountedPrice?: number | null
 }
 
 export const headphones: IHeadphones[] = [
@@ -14,7 +13,6 @@ export const headphones: IHeadphones[] = [
         title: 'Apple BYZ S852I',
         rating: 4.7,
         price: 3527,
-        discountedPrice: 2927,
     },
     {
         id: 2,
@@ -22,7 +20,6 @@ export const headphones: IHeadphones[] = [
         title: 'Apple EarPods',
         rating: 4.5,
         price: 2327,
-        discountedPrice: null,
     },
     {
         id: 3,
@@ -30,7 +27,6 @@ export const headphones: IHeadphones[] = [
         title: 'Apple EarPods',
         rating: 4.1,
         price: 3535,
-        discountedPrice: null,
     },
     {
         id: 4,
@@ -38,7 +34,6 @@ export const headphones: IHeadphones[] = [
         title: 'Apple BYZ S852IV2',
         rating: 3.8,
         price: 5651,
-        discountedPrice: 3865,
     },
     {
         id: 5,
@@ -46,7 +41,6 @@ export const headphones: IHeadphones[] = [
         title: 'Apple BYZ El',
         rating: 5.0,
         price: 1895,
-        discountedPrice: null,
     },
     {
         id: 6,
@@ -54,7 +48,6 @@ export const headphones: IHeadphones[] = [
         title: 'Apple Samsung',
         rating: 3.2,
         price: 9568,
-        discountedPrice: null,
     },
 ]
 

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { IHeadphones } from '../../data.headphones'
 
-interface ICart extends IHeadphones {
-    quantity: number
+export interface ICart extends IHeadphones {
+    count: number
 }
 
 const initialState: { cart: ICart[] } = {
@@ -14,12 +14,12 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            const { item, quantity } = action.payload
+            const { item, count } = action.payload
             const indexCart = state.cart.findIndex(i => i.id === item.id)
             if (indexCart >= 0) {
-                state.cart[indexCart].quantity += quantity
+                state.cart[indexCart].count += count
             } else {
-                state.cart.push({ ...item, quantity })
+                state.cart.push({ ...item, count })
             }
         },
     },

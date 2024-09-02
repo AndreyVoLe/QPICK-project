@@ -6,5 +6,9 @@
     "terms": "Terms of Service",
     "buy": "Buy",
     "headphone": "Headphones",
-    "wireless": "Wireless headphones"
+    "wireless": "Wireless headphones",
+    "total": "TOTAL",
+    "goToBuy": "Go to checkout",
+    "backToSelection": "Back to selection",
+    "emptyCart": "Cart is empty..."
 }

@@ -13,21 +13,22 @@ interface ICard {
 
 const CardHeadPhone = (props: ICard): JSX.Element => {
     const cart = useSelector((state: RootState) => state.cart.cart)
+
     const itemInCart = cart.find(cartItem => cartItem.id === props.item.id)
-    console.log(cart)
+
     const dispatch = useDispatch()
     const handleAddClick = () => {
         dispatch(
             addToCart({
                 item: props.item,
-                quantity: 1,
+                count: 1,
             })
         )
     }
 
     return (
         <Grid size={{ xs: 12, md: 6, lg: 4 }}>
-            <div className="flex flex-col border border-gray-300  rounded-3xl ">
+            <div className="flex flex-col border border-gray-300  rounded-3xl bg-white ">
                 <div className="flex justify-center items-center">
                     <div className="card-image w-[180px] h-[180px] flex justify-center items-center">
                         <img
@@ -40,19 +41,17 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
                 <div className="flex justify-between items-center mt-4 mx-6">
                     <p className="font-bold">{props.item.title}</p>
 
-                    <p className="font-semibold text-yellow-600  ">
-                        {props.item.discountedPrice
-                            ? props.item.discountedPrice
-                            : props.item.price}
+                    <p className="font-semibold text-yellow-600   ">
+                        {props.item.price}
                         <CurrencyRubleIcon sx={{ fontSize: 16, mb: 0.2 }} />
                     </p>
                 </div>
-                <span className="text-right">
+                {/* <span className="text-right">
                     <s className="font-normal text-yellow-600 text-sm mr-8 relative bottom-2">
                         {props.item.discountedPrice ? props.item.price : ''}
                     </s>
-                </span>
-                <div className="flex justify-between items-center mb-5 mx-6">
+                </span> */}
+                <div className="flex justify-between items-center my-5 mx-6 ">
                     <p className="font-bold text-gray-500">
                         <StarIcon
                             sx={{
@@ -75,7 +74,7 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
                                     <img src="/src/assets/-.jpg" alt="-" />
                                 </button>
                                 <div className="font-bold">
-                                    {itemInCart.quantity}
+                                    {itemInCart.count}
                                 </div>
                                 <button>
                                     <img src="/src/assets/+.jpg" alt="+" />

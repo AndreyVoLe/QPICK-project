@@ -5,20 +5,22 @@ import Header from '../components/Header'
 
 const CartPage = () => {
     return (
-        <Container
-            maxWidth={'lg'}
-            sx={{
-                display: 'grid',
-                gridTemplateRows: 'auto 1fr auto',
-                minHeight: '100vh',
-            }}
-        >
-            <Header />
+        <div className="bg-gr">
+            <Container
+                maxWidth={'lg'}
+                sx={{
+                    display: 'grid',
+                    gridTemplateRows: 'auto 1fr auto',
+                    minHeight: '100vh',
+                }}
+            >
+                <Header />
 
-            <CartContent />
+                <CartContent />
 
-            <Footer />
-        </Container>
+                <Footer />
+            </Container>
+        </div>
     )
 }
 
