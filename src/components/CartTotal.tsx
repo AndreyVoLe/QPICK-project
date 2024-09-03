@@ -16,11 +16,11 @@ const CartTotal = () => {
         0
     )
     const [openModal, setOpenModal] = useState(false)
-    const handleOpenModal = () => setOpenModal(true)
+    const handleOpenModal = () => setOpenModal(prev => !prev)
     const { t } = useTranslation()
 
     return (
-        <section className="flex flex-col items-center">
+        <section className="flex flex-col items-center mr-0 xs:mr-5">
             <div className="flex flex-col items-center h-[120px] w-[350px]  rounded-2xl shadow-2xl bg-white mb-12">
                 <div className="flex justify-between items-center rounded-2xl  w-full h-1/2 bg-white p-5">
                     <span className="font-semibold">{t('total')}</span>

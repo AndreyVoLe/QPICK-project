@@ -11,5 +11,12 @@
     "goToBuy": "Go to checkout",
     "backToSelection": "Back to selection",
     "emptyCart": "Cart is empty...",
-    "emptyLike": "There are no featured products in the list yet"
+    "emptyLike": "There are no featured products in the list yet",
+    "formPay": "Payment form",
+    "close": "CLOSE",
+    "nCart": "Card number",
+    "vPeriod": "Validity period",
+    "ch": "Cardholder name",
+    "pay": "Pay",
+    "more": "MORE DETAILS"
 }

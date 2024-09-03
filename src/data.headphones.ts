@@ -4,6 +4,7 @@ export interface IHeadphones {
     title: string
     rating: number
     price: number
+    description: string
 }
 
 export const headphones: IHeadphones[] = [
@@ -13,6 +14,8 @@ export const headphones: IHeadphones[] = [
         title: 'Apple Samsung',
         rating: 4.7,
         price: 387,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 2,
@@ -20,6 +23,8 @@ export const headphones: IHeadphones[] = [
         title: 'Apple EarPods',
         rating: 4.5,
         price: 2327,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 3,
@@ -27,6 +32,8 @@ export const headphones: IHeadphones[] = [
         title: 'Apple EarPods',
         rating: 4.1,
         price: 3535,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 4,
@@ -34,6 +41,8 @@ export const headphones: IHeadphones[] = [
         title: 'Apple BYZ S852IV2',
         rating: 3.8,
         price: 5651,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 5,
@@ -41,6 +50,8 @@ export const headphones: IHeadphones[] = [
         title: 'Apple BYZ El',
         rating: 5.0,
         price: 1895,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 6,
@@ -48,17 +59,20 @@ export const headphones: IHeadphones[] = [
         title: 'Apple Samsung',
         rating: 3.2,
         price: 9568,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
 ]
 
-export const wirelessHead = [
+export const wirelessHead: IHeadphones[] = [
     {
         id: 7,
         img: '7.png',
         title: 'Samsung',
         rating: 2.6,
         price: 3527,
-        discountedPrice: null,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 8,
@@ -66,7 +80,8 @@ export const wirelessHead = [
         title: 'EQC',
         rating: 4.0,
         price: 6598,
-        discountedPrice: 3265,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 9,
@@ -74,7 +89,8 @@ export const wirelessHead = [
         title: 'Apple EarPods',
         rating: 4.1,
         price: 3535,
-        discountedPrice: null,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 10,
@@ -82,7 +98,8 @@ export const wirelessHead = [
         title: 'Apple U',
         rating: 3.1,
         price: 5651,
-        discountedPrice: 3865,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 11,
@@ -90,7 +107,8 @@ export const wirelessHead = [
         title: 'Apple U',
         rating: 3.1,
         price: 5651,
-        discountedPrice: 3865,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 12,
@@ -98,7 +116,8 @@ export const wirelessHead = [
         title: 'Apple U',
         rating: 3.1,
         price: 5651,
-        discountedPrice: 3865,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
     {
         id: 13,
@@ -106,6 +125,7 @@ export const wirelessHead = [
         title: 'Apple U',
         rating: 3.1,
         price: 689,
-        discountedPrice: null,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
 ]

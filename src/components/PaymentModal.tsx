@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Modal, Box, Button, TextField, Typography } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 interface IPay {
     onOpen: boolean
 }
 
 const PaymentModal = (props: IPay) => {
+    const { t } = useTranslation()
     const [open, setOpen] = useState(false)
     const [formData, setFormData] = useState({
         cardNumber: '',
@@ -61,11 +63,21 @@ const PaymentModal = (props: IPay) => {
                         variant="h6"
                         component="h2"
                     >
-                        Форма оплаты
+                        {t('formPay')}
                     </Typography>
+                    <Button
+                        onClick={handleClose}
+                        sx={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 8,
+                        }}
+                    >
+                        {t('close')}
+                    </Button>
                     <form onSubmit={handleSubmit}>
                         <TextField
-                            label="Номер карты"
+                            label={`${t('nCart')}`}
                             variant="outlined"
                             fullWidth
                             margin="normal"
@@ -75,7 +87,7 @@ const PaymentModal = (props: IPay) => {
                             required
                         />
                         <TextField
-                            label="Срок действия"
+                            label={`${t('vPeriod')}`}
                             variant="outlined"
                             fullWidth
                             margin="normal"
@@ -95,7 +107,7 @@ const PaymentModal = (props: IPay) => {
                             required
                         />
                         <TextField
-                            label="Имя держателя карты"
+                            label={`${t('ch')}`}
                             variant="outlined"
                             fullWidth
                             margin="normal"
@@ -110,7 +122,7 @@ const PaymentModal = (props: IPay) => {
                             color="primary"
                             fullWidth
                         >
-                            Оплатить
+                            {t('pay')}
                         </Button>
                     </form>
                 </Box>

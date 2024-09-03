@@ -9,12 +9,28 @@ import { t } from 'i18next'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { addLike } from '../redux/slices/likeSlice'
+import { Box, Button, Modal } from '@mui/material'
+import { useState } from 'react'
 
 interface ICard {
     item: IHeadphones
 }
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+}
 
 const CardHeadPhone = (props: ICard): JSX.Element => {
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
     const cart = useSelector((state: RootState) => state.cart.cart)
     const like = useSelector((state: RootState) => state.like.like)
     const isFilled = like.some(i => i.id === props.item.id)
@@ -101,6 +117,18 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
                         />
                         {props.item.rating.toFixed(1)}
                     </p>
+                    <Button variant="outlined" onClick={handleOpen}>
+                        {t('more')}
+                    </Button>
+                    <Modal open={open} onClose={handleClose}>
+                        <Box sx={style}>
+                            <h2 className="text-center mb-2 font-bold">
+                                {props.item.title}
+                            </h2>
+                            <p>{props.item.description}</p>
+                            <Button onClick={handleClose}>{t('close')}</Button>
+                        </Box>
+                    </Modal>
 
                     {itemInCart ? (
                         <div className="flex gap-5 items-center">

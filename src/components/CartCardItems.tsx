@@ -48,7 +48,7 @@ const CartCarditems = (props: ICartItem) => {
 
     return (
         <>
-            <section className="rounded-[30px] bg-white border w-[350px] sm:w-[500px] border-gray-300 shadow-lg px-5 pb-4 xl:w-[633px] ">
+            <section className="rounded-[30px] mr-0 xs:mr-5 bg-white border w-[350px] sm:w-[500px] border-gray-300 shadow-lg  px-5 pb-4 xl:w-[633px] ">
                 <div className="flex justify-between">
                     <div className="flex gap-6">
                         <img
