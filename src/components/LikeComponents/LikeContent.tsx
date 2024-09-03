@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux'
-import { RootState } from '../redux/store/store'
+import { RootState } from '../../redux/store/store'
 import { useTranslation } from 'react-i18next'
-import BackToSelection from './BackToSelection'
+import BackToSelection from '../helpers/BackToSelection'
 import { Link } from 'react-router-dom'
 import LikeItem from './LikeItem'
 
 const LikeContent = () => {
     const like = useSelector((state: RootState) => state.like.like)
+
     const { t } = useTranslation()
-    console.log(like)
 
     return (
         <>

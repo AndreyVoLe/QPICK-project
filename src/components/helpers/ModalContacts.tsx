@@ -5,8 +5,7 @@ import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 
 const style = {
-    // eslint-disable-next-line @typescript-eslint/prefer-as-const
-    position: 'absolute' as 'absolute',
+    position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',

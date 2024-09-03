@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import Header from '../components/Header'
-import MainContent from '../components/MainContent'
+import MainContent from '../components/MainComponents/MainContent'
 import Footer from '../components/Footer'
 // interface IMainPage {
 //     open: boolean

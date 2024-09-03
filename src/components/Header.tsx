@@ -7,9 +7,10 @@ import type { RootState } from '../redux/store/store'
 
 const Header = () => {
     const cart = useSelector((state: RootState) => state.cart.cart)
+    const totalQuantity = cart.reduce((total, item) => total + item.count, 0)
+
     const like = useSelector((state: RootState) => state.like.like)
     const totalLikes = like.reduce((total, item) => total + item.count, 0)
-    const totalQuantity = cart.reduce((total, item) => total + item.count, 0)
 
     return (
         <header>

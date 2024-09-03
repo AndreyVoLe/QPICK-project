@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next'
-import { RootState } from '../redux/store/store'
+import { RootState } from '../../redux/store/store'
 import { useSelector } from 'react-redux'
 import CartCarditems from './CartCardItems'
 import CartTotal from './CartTotal'
-import BackToSelection from './BackToSelection'
+import BackToSelection from '../helpers/BackToSelection'
 import { Link } from 'react-router-dom'
 
 const CartContent = () => {
     const { t } = useTranslation()
+
     const cart = useSelector((state: RootState) => state.cart.cart)
 
     return (

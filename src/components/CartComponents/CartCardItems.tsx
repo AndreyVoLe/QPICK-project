@@ -4,9 +4,9 @@ import {
     ICart,
     removeFullCard,
     removeToCard,
-} from '../redux/slices/cartSlice'
+} from '../../redux/slices/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../redux/store/store'
+import { RootState } from '../../redux/store/store'
 
 interface ICartItem {
     item: ICart
@@ -16,6 +16,7 @@ const CartCarditems = (props: ICartItem) => {
     const cart = useSelector((state: RootState) => state.cart.cart)
     const itemInCart = cart.find(cartItem => cartItem.id === props.item.id)
     const totalQuantity = props.item.price * props.item.count
+
     const dispatch = useDispatch()
 
     const handleAddClick = () => {

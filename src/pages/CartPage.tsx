@@ -1,5 +1,5 @@
 import { Container } from '@mui/material'
-import CartContent from '../components/CartContent'
+import CartContent from '../components/CartComponents/CartContent'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 

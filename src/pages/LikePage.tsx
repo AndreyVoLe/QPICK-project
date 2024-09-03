@@ -1,7 +1,7 @@
 import { Container } from '@mui/material'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import LikeContent from '../components/LikeContent'
+import LikeContent from '../components/LikeComponents/LikeContent'
 
 const LikePage = () => {
     return (

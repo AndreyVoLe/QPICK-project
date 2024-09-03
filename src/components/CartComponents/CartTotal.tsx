@@ -1,22 +1,23 @@
 import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
 
 import { useSelector } from 'react-redux'
-import { RootState } from '../redux/store/store'
+import { RootState } from '../../redux/store/store'
 import { useTranslation } from 'react-i18next'
-import BackToSelection from './BackToSelection'
+import BackToSelection from '../helpers/BackToSelection'
 import { Link } from 'react-router-dom'
-import PaymentModal from './PaymentModal'
+import PaymentModal from '../helpers/PaymentModal'
 import { useState } from 'react'
 
 const CartTotal = () => {
     const cart = useSelector((state: RootState) => state.cart.cart)
-
     const totalQuantity = cart.reduce(
         (total, item) => total + item.price * item.count,
         0
     )
+
     const [openModal, setOpenModal] = useState(false)
     const handleOpenModal = () => setOpenModal(prev => !prev)
+
     const { t } = useTranslation()
 
     return (

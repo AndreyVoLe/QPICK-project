@@ -1,12 +1,11 @@
 import Grid from '@mui/material/Grid2'
-
-import { headphones, wirelessHead } from './../data.headphones'
+import { headphones, wirelessHead } from '../../data.headphones'
 import CardHeadPhone from './CardHeadPhone'
-
 import { useTranslation } from 'react-i18next'
 
 const MainContent = () => {
     const { t } = useTranslation()
+
     return (
         <main>
             <p className="font-semibold text-gray-600 mt-[80px] mb-4">
