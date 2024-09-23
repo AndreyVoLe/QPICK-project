@@ -14,7 +14,7 @@ const CartContent = () => {
     return (
         <>
             {cart.length > 0 ? (
-                <main className="sm:px-6 lg:px-8 bg-gr">
+                <main className="sm:px-6 lg:px-0 bg-gr">
                     <p className="font-semibold text-gray-600 mt-20 mb-4">
                         {t('cart')}
                     </p>
