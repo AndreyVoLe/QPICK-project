@@ -4,6 +4,7 @@ import PageLayout from './pages/PageLayout'
 import MainContent from './pages/MainContent'
 import LikeContent from './pages/LikeContent'
 import CartContent from './pages/CartContent'
+import NotFound from './pages/NotFound'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path="cart" element={<CartContent />} />
                     <Route path="like" element={<LikeContent />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </>
     )

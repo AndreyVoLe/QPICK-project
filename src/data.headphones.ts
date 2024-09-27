@@ -62,6 +62,15 @@ export const headphones: IHeadphones[] = [
         description:
             'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
     },
+    {
+        id: 54,
+        img: '6.png',
+        title: 'Apple Samsung',
+        rating: 3.2,
+        price: 3206,
+        description:
+            'Apple devices are renowned for their design aesthetic and attention to detail. Tight integration between hardware and software gives their systems a performance advantage over competitor systems with similar specifications.',
+    },
 ]
 
 export const wirelessHead: IHeadphones[] = [
