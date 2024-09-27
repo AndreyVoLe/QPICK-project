@@ -29,3 +29,36 @@
     left: 15px;
     font-size: 12px;
 }
+
+.qpick {
+    color: #000;
+    position: relative;
+}
+
+.qpick::before {
+    content: attr(data-text);
+
+    background: linear-gradient(120deg, #662cf0, #eb412e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0;
+    animation: print 5s linear infinite;
+    border-right: 2px solid #ac964f;
+}
+
+@keyframes print {
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+    70%,
+    90% {
+        width: 100%;
+    }
+}

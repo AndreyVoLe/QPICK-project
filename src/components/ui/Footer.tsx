@@ -1,37 +1,37 @@
 import { Box, Modal, Toolbar, Typography } from '@mui/material'
-import { t } from 'i18next'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 function Footer() {
-    const style = {
-        // eslint-disable-next-line @typescript-eslint/prefer-as-const
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: 'background.paper',
-
-        boxShadow: 24,
-        p: 4,
-    }
-    const { i18n } = useTranslation()
-
-    const handleLanguageChange = (lng: string) => {
-        i18n.changeLanguage(lng)
-    }
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
+
+    const { t, i18n } = useTranslation()
+    const handleLanguageChange = (lng: string) => {
+        i18n.changeLanguage(lng)
+        localStorage.setItem('selectedLanguage', lng)
+    }
+
+    useEffect(() => {
+        const selectedLanguage = localStorage.getItem('selectedLanguage')
+        if (selectedLanguage) {
+            i18n.changeLanguage(selectedLanguage)
+        }
+    }, [i18n])
 
     return (
         <>
             <footer className="footer">
                 <Toolbar className="flex flex-wrap gap-5 justify-between items-start px-7 py-9 w-full bg-white rounded-[30px_30px_0px_0px] shadow-[0px_0px_20px_rgba(0,0,0,0.1)] max-md:px-5 max-md:max-w-full mt-10 ">
                     <Link to={'/'}>
-                        <h2 className="font-semibold text-2xl ml-4">QPICK</h2>
+                        <h2
+                            data-text="QPICK"
+                            className="font-semibold text-2xl ml-4 qpick"
+                        >
+                            QPICK
+                        </h2>
                     </Link>
                     <ul>
                         <li className="hover:text-gray-400 rounded-lg transition duration-300 ease-out">
@@ -107,7 +107,19 @@ function Footer() {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: 400,
+                            bgcolor: 'background.paper',
+                            boxShadow: 24,
+                            p: 4,
+                            border: 'none',
+                        }}
+                    >
                         <Typography
                             id="modal-modal-title"
                             variant="h6"

@@ -3,9 +3,9 @@ import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/store'
 import { useTranslation } from 'react-i18next'
-import BackToSelection from '../helpers/BackToSelection'
+import BackToSelection from '../ui/BackToSelection'
 import { Link } from 'react-router-dom'
-import PaymentModal from '../helpers/PaymentModal'
+import PaymentModal from '../ui/PaymentModal'
 import { useState } from 'react'
 
 const CartTotal = () => {

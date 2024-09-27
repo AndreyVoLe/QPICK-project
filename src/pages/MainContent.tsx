@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid2'
-import { headphones, wirelessHead } from '../../data.headphones'
-import CardHeadPhone from './CardHeadPhone'
+import { headphones, wirelessHead } from '../data.headphones'
+import CardHeadPhone from '../components/MainComponents/CardHeadPhone'
 import { useTranslation } from 'react-i18next'
 
 const MainContent = () => {

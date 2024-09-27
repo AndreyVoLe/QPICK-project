@@ -1,51 +1,16 @@
 import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
-import {
-    addToCart,
-    ICart,
-    removeFullCard,
-    removeToCard,
-} from '../../redux/slices/cartSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../redux/store/store'
+import { ICart } from '../../redux/slices/cartSlice'
+import useHookDispatch from '../../hooks/useHookDispatch'
 
 interface ICartItem {
     item: ICart
 }
 
 const CartCarditems = (props: ICartItem) => {
-    const cart = useSelector((state: RootState) => state.cart.cart)
-    const itemInCart = cart.find(cartItem => cartItem.id === props.item.id)
     const totalQuantity = props.item.price * props.item.count
-
-    const dispatch = useDispatch()
-
-    const handleAddClick = () => {
-        dispatch(
-            addToCart({
-                item: props.item,
-                count: 1,
-            })
-        )
-    }
-
-    const handleDecrease = () => {
-        if (itemInCart) {
-            dispatch(
-                removeToCard({
-                    id: props.item.id,
-                    count: 1,
-                })
-            )
-        }
-    }
-
-    const deleteItem = () => {
-        dispatch(
-            removeFullCard({
-                id: props.item.id,
-            })
-        )
-    }
+    const { handleAddClick, handleDecrease, deleteItem } = useHookDispatch(
+        props.item
+    )
 
     return (
         <>

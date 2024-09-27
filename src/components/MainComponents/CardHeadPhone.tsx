@@ -2,16 +2,15 @@ import Grid from '@mui/material/Grid2'
 import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
 import StarIcon from '@mui/icons-material/Star'
 import { IHeadphones } from '../../data.headphones'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import type { RootState } from '../../redux/store/store'
-import { addToCart, removeToCard } from '../../redux/slices/cartSlice'
 import { t } from 'i18next'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { addLike } from '../../redux/slices/likeSlice'
 import { Button } from '@mui/material'
 import { useState } from 'react'
-import HeadphoneModal from '../helpers/HeadphoneModal'
+import HeadphoneModal from '../ui/HeadphoneModal'
+import useHookDispatch from '../../hooks/useHookDispatch'
 
 interface ICard {
     item: IHeadphones
@@ -28,33 +27,8 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
     const like = useSelector((state: RootState) => state.like.like)
     const isFilled = like.some(i => i.id === props.item.id)
 
-    const dispatch = useDispatch()
-
-    const handleChangeLike = () => {
-        dispatch(
-            addLike({
-                item: props.item,
-                count: 1,
-            })
-        )
-    }
-    const handleAddClick = () => {
-        dispatch(
-            addToCart({
-                item: props.item,
-                count: 1,
-            })
-        )
-    }
-
-    const handleDecrease = () => {
-        dispatch(
-            removeToCard({
-                id: props.item.id,
-                count: 1,
-            })
-        )
-    }
+    const { handleChangeLike, handleAddClick, handleDecrease } =
+        useHookDispatch(props.item)
 
     return (
         <Grid size={{ xs: 12, md: 6, lg: 4 }}>
@@ -86,7 +60,7 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
                 <div className="flex justify-between items-center mt-4 mx-6">
                     <p className="font-bold">{props.item.title}</p>
 
-                    <p className="font-semibold text-yellow-600   ">
+                    <p className="font-semibold text-yellow-600">
                         {props.item.price}
                         <CurrencyRubleIcon sx={{ fontSize: 16, mb: 0.2 }} />
                     </p>
@@ -119,7 +93,7 @@ const CardHeadPhone = (props: ICard): JSX.Element => {
                     />
 
                     {itemInCart ? (
-                        <div className="flex gap-5 items-center">
+                        <div className="flex gap-5 max-sm:gap-3 items-center">
                             <button onClick={handleDecrease}>
                                 <img src="/src/assets/-.jpg" alt="-" />
                             </button>

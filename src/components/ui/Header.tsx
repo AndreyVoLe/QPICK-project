@@ -3,7 +3,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import type { RootState } from '../redux/store/store'
+import type { RootState } from '../../redux/store/store'
 
 const Header = () => {
     const cart = useSelector((state: RootState) => state.cart.cart)
@@ -31,8 +31,9 @@ const Header = () => {
                         <Link to={'/'}>
                             <Typography
                                 content="h1"
+                                data-text="QPICK"
+                                className="qpick"
                                 sx={{
-                                    color: '#000000',
                                     fontSize: 25,
                                 }}
                             >

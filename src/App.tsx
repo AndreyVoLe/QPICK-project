@@ -1,18 +1,18 @@
-import MainPage from './pages/MainPage'
 import './index.css'
 import { Route, Routes } from 'react-router-dom'
-import CartPage from './pages/CartPage'
-import LikePage from './pages/LikePage'
 import PageLayout from './pages/PageLayout'
+import MainContent from './pages/MainContent'
+import LikeContent from './pages/LikeContent'
+import CartContent from './pages/CartContent'
 
 function App() {
     return (
         <>
             <Routes>
                 <Route path="/" element={<PageLayout />}>
-                    <Route index element={<MainPage />} />
-                    <Route path="cart" element={<CartPage />} />
-                    <Route path="like" element={<LikePage />} />
+                    <Route index element={<MainContent />} />
+                    <Route path="cart" element={<CartContent />} />
+                    <Route path="like" element={<LikeContent />} />
                 </Route>
             </Routes>
         </>
