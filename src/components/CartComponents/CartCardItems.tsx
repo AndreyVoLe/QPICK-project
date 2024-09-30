@@ -1,6 +1,7 @@
 import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble'
 import { ICart } from '../../redux/slices/cartSlice'
 import useHookDispatch from '../../hooks/useHookDispatch'
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded'
 
 interface ICartItem {
     item: ICart
@@ -14,7 +15,7 @@ const CartCarditems = (props: ICartItem) => {
 
     return (
         <>
-            <section className="rounded-[30px] mr-0 xs:mr-5 bg-white border w-[300px] sm:w-[500px] border-gray-300 shadow-lg px-5 pb-4 xl:w-[633px]">
+            <section className="rounded-[30px] mr-0 xs:mr-5 bg-white border w-[300px] sm:w-[500px] border-gray-300 shadow-lg px-5 pb-4 xl:w-[633px] relative">
                 <div className="flex justify-between">
                     <div className="flex gap-6">
                         <div className="w-[150px] h-[150px]">
@@ -38,17 +39,15 @@ const CartCarditems = (props: ICartItem) => {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-4">
-                        <img
-                            className="cursor-pointer"
-                            src="/src/assets/Vector.jpg"
-                            alt="backet"
-                            onClick={deleteItem}
-                        />
-                    </div>
+                    <button
+                        className="mt-4 absolute top-0 right-3 sm:right-5"
+                        onClick={deleteItem}
+                    >
+                        <DeleteOutlineRoundedIcon sx={{ color: 'red' }} />
+                    </button>
                 </div>
 
-                <div className="flex justify-between items-center mt-6 ml-6">
+                <div className="flex justify-between items-center mt-6 ml-6 max-lg:ml-2">
                     <div className="flex gap-5 items-center">
                         <div>
                             <img
