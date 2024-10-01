@@ -16,7 +16,8 @@ const CartTotal = () => {
     )
 
     const [openModal, setOpenModal] = useState(false)
-    const handleOpenModal = () => setOpenModal(prev => !prev)
+    const handleOpenModal = () => setOpenModal(true)
+    const handleCloseModal = () => setOpenModal(false)
 
     const { t } = useTranslation()
 
@@ -40,7 +41,10 @@ const CartTotal = () => {
             <Link to={'/'}>
                 <BackToSelection />
             </Link>
-            <PaymentModal onOpen={openModal} />
+            <PaymentModal
+                onOpen={openModal}
+                handleCloseModal={handleCloseModal}
+            />
         </section>
     )
 }

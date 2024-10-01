@@ -35,7 +35,7 @@
     position: relative;
 }
 
-.qpick::before {
+/* .qpick::before {
     content: attr(data-text);
 
     background: linear-gradient(120deg, #662cf0, #eb412e);
@@ -61,4 +61,4 @@
     90% {
         width: 100%;
     }
-}
+} */

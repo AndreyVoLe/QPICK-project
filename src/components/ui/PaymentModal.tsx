@@ -1,21 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Modal, Box, Button, TextField, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 interface IPay {
     onOpen: boolean
+    handleCloseModal: () => void
 }
 
 const PaymentModal = (props: IPay) => {
     const { t } = useTranslation()
-    const [open, setOpen] = useState(false)
+
     const [formData, setFormData] = useState({
         cardNumber: '',
         expiryDate: '',
         cvv: '',
         cardHolder: '',
     })
-
-    const handleClose = () => setOpen(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -29,19 +28,14 @@ const PaymentModal = (props: IPay) => {
         e.preventDefault()
 
         console.log(formData)
-        handleClose()
+        props.handleCloseModal()
     }
-    useEffect(() => {
-        if (props.onOpen) {
-            setOpen(true)
-        }
-    }, [props.onOpen])
 
     return (
         <div>
             <Modal
-                open={open}
-                onClose={handleClose}
+                open={props.onOpen}
+                onClose={props.handleCloseModal}
                 aria-labelledby="payment-modal-title"
                 aria-describedby="payment-modal-description"
             >
@@ -66,7 +60,7 @@ const PaymentModal = (props: IPay) => {
                         {t('formPay')}
                     </Typography>
                     <Button
-                        onClick={handleClose}
+                        onClick={props.handleCloseModal}
                         sx={{
                             position: 'absolute',
                             top: 8,
